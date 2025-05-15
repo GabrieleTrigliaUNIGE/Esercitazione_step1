@@ -12,10 +12,11 @@
 #include <iostream>
 #include <cmath>
 #include <cstring>
+#include "CFunction.h"
 
 using namespace std;
 
-class Polynomial {
+class Polynomial : public Function {
 private:
     double* coeff;  											// puntatore ad array di double
     int degree; 												// grado del polinomio 
@@ -32,13 +33,11 @@ public:
 	/// @name OPERATORS 
 	/// @{
     Polynomial& operator=(const Polynomial& p); 				// overload dell'operatore =
-	Polynomial operator+(const Polynomial& p); 					// overload dell'operatore +
 	bool operator==(const Polynomial& p); 						// overload dell'operatore ==
 	/// @}
 
-
 	void SetPolynomial(const double* coefficients, int size);	// SETTER per l'attributo
-    double GetValue(double in) const;							// metodo che restituisce il valore del polinomio valutato in (in)
+    double GetValue(double in);							// metodo che restituisce il valore del polinomio valutato in (in)
 	
 	void Reset();												// metodo per resettare l'oggetto
 

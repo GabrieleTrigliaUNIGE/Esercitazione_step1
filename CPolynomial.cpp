@@ -85,39 +85,6 @@ Polynomial& Polynomial::operator=(const Polynomial& p) {
     return *this;
 }
 
-/**
- * @brief overload operator +
- * @param p object to be added
- * @return the sum of the two objects
- */
-Polynomial Polynomial::operator+(const Polynomial& p) {
-    
-	int i;
-	Polynomial newP;
-	int newSize = max(degree, p.degree) + 1;
-    
-	double* newCoeff = new double[newSize];
-	if (newCoeff == NULL) {
-		ErrorMessage("Operator +: cannot allocate memory");
-		exit(-1);
-	}
-	
-	for (i = 0; i < newSize; ++i) 
-        newCoeff[i] = 0.;
-        
-    for (i = 0; i <= degree; ++i) 
-        newCoeff[i] += coeff[i];
-        
-    for (i = 0; i <= p.degree; ++i) 
-        newCoeff[i] += p.coeff[i];
-       
-    newP= Polynomial(newCoeff, newSize);
-	
-	delete newCoeff;
-    
-    return newP;
-}
-
 /// @brief overload operator ==
 bool Polynomial::operator==(const Polynomial& p) {
 	
@@ -169,7 +136,7 @@ void Polynomial::SetPolynomial(const double* coefficients, int size) {
  * @param in the input
  * @return the value of the function
  */
-double Polynomial::GetValue(double in) const {
+double Polynomial::GetValue(double in) {
     int i;
 	double x = in;
 	double result = 0.0;
