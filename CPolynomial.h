@@ -16,6 +16,10 @@
 
 using namespace std;
 
+/**
+ * @class Polynomial
+ * @brief A class for polynomial functions
+ */
 class Polynomial : public Function {
 private:
     double* coeff;  											// puntatore ad array di double

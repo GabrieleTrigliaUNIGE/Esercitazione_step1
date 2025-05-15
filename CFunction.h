@@ -42,6 +42,8 @@ public:
      * @brief dump method
      */
 	virtual void Dump()=0;
+    virtual void ErrorMessage(const char *string)=0; 						// metodo che stampa gli errori
+	virtual void WarningMessage(const char *string)=0;					// metodo che stampa i warning
 	/// @}
 };
 
