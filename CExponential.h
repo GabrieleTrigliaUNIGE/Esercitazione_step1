@@ -15,7 +15,7 @@
 #include "CFunction.h"
 
 /**
- * @class CExponential
+ * @class Exponential
  * @brief A class for exponential functions
  */
 class Exponential : public Function{
@@ -26,14 +26,15 @@ private:
 
 public:
 
-    /// @name CONSTRUCTORs and DESTRUCTOR 
+    /// @name COSTRUTTORI e DISTRUTTORE 
 	/// @{
     Exponential();
+    Exponential(Exponential& other);
     Exponential(double b, double k, double c);
     ~Exponential();
     /// @}
 
-    /// @name OPERATORS 
+    /// @name OPERATORI
 	/// @{
     Exponential& operator=(const Exponential& other);
     bool operator==(const Exponential& other);
@@ -44,7 +45,7 @@ public:
 
     void Reset();
     
-    /// @name DEBUG and SERIALIZATION 
+    /// @name DEBUG e SERIALIZATION 
 	/// @{
 	void ErrorMessage(const char *string); 						// metodo che stampa gli errori
 	void WarningMessage(const char *string);					// metodo che stampa i warning

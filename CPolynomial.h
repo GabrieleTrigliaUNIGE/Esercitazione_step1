@@ -18,7 +18,7 @@ using namespace std;
 
 /**
  * @class Polynomial
- * @brief A class for polynomial functions
+ * @brief Classe per le funzioni polinomio
  */
 class Polynomial : public Function {
 private:
@@ -26,7 +26,7 @@ private:
     int degree; 												// grado del polinomio 
 
 public:
-	/// @name CONSTRUCTORs and DESTRUCTOR 
+	/// @name COSTRUTTORI e DISTRUTTORE
 	/// @{
     Polynomial();  // costruttore di default 
 	Polynomial(const double* coefficients, int size); 			// costruttore di default con passaggio di parametri 
@@ -34,18 +34,18 @@ public:
     ~Polynomial();												// distruttore dei Polynomial
 	/// @}
 
-	/// @name OPERATORS 
+	/// @name OPERATORI 
 	/// @{
     Polynomial& operator=(const Polynomial& p); 				// overload dell'operatore =
 	bool operator==(const Polynomial& p); 						// overload dell'operatore ==
 	/// @}
 
 	void SetPolynomial(const double* coefficients, int size);	// SETTER per l'attributo
-    double GetValue(double in);							// metodo che restituisce il valore del polinomio valutato in (in)
+    double GetValue(double in);									// metodo che restituisce il valore del polinomio valutato in (in)
 	
 	void Reset();												// metodo per resettare l'oggetto
 
-	/// @name DEBUG and SERIALIZATION 
+	/// @name DEBUG e SERIALIZATION 
 	/// @{
 	void ErrorMessage(const char *string); 						// metodo che stampa gli errori
 	void WarningMessage(const char *string);					// metodo che stampa i warning

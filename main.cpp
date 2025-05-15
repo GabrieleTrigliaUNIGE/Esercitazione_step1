@@ -8,10 +8,13 @@
 #include <iostream>
 #include "CFunction.h"
 #include "CPolynomial.h"
+#include "CExponential.h"
+
+using namespace std;
 
 int main(int argc, char const *argv[])
 {
-    std::cout << "FILE DI TEST" << std::endl;
+    cout << "FILE DI TEST" << endl;
 
     double cf1[7]={2.0,1.5,0,0,0,0,-1.0};
 	double cf2[4]={-2.0,1.5,2.5,3.5};
@@ -22,6 +25,9 @@ int main(int argc, char const *argv[])
 	Polynomial p2(cf2,4);
 	Polynomial p3=p1;
     Function *f1 = new Polynomial(cf3, 3);
+
+    Exponential e1(2,2,4);
+    Exponential e2(-3,3,4);
 	
     cout << "--- INIZIO TEST POLINOMIO ---" << endl;
     cout << "Dump p0: ";
@@ -36,25 +42,45 @@ int main(int argc, char const *argv[])
     f1->Dump();
 	
     cout << "p0 == p1 ?: ";
-	if (p0==p1)
-		cout << "vero" << endl;
-    else
+	if (p0==p1) {
+        cout << "vero" << endl;
+    } else {
         cout << "falso" << endl;
+    }
 
     cout << "p1 == p3 ?: ";
-	if (p3==p1)
-		cout << "vero" << endl;
-    else
+	if (p3==p1) {
+        cout << "vero" << endl;
+    } else {
         cout << "falso" << endl;
+    }
 
+    cout << "p3(5) = " << p3.GetValue(1.) << endl;
     
 	p1.Reset(); 
     cout << "TEST reset p1: ";
 	p1.Dump();
+    // DA ERRORE CONTROLLARE ESISTENZA POLINOMIO IN GetValue(); --> cout << "p1(5) = " << p1.GetValue(1.) << endl;
 
     cout << "--- FINE TEST POLINOMIO ---" << endl;
     cout << "--- INIZIO TEST ESPONENZIALE ---" << endl;
 
+    e1.Dump();
+    e2.Dump();
+
+    cout << "e1(1)=" << e1.GetValue(1) << endl;
+    cout << "e2(1)=" << e2.GetValue(1) << endl;
+
+    e2 = e1;
+
+    e2.Dump();
+
+    cout << "e1 == e2 ?: ";
+    if (e1 == e2) { 
+        cout << "vero" << endl;
+    }
+    
+    cout << "e2(1)=" << e2.GetValue(1) << endl;
     
     return 0;
 }

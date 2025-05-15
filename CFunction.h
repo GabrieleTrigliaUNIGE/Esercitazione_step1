@@ -16,33 +16,21 @@ using namespace std;
 class Function {
 
 public:  
-	/// @name CONSTRUCTORS/DESTRUCTOR
+	/// @name COSTRUTTORI e DISTRUTTORE
 	/// @{
-    /**
-     * @brief Default constructor
-     */
     Function(){};
-    /**
-     * @brief Decontructor
-     */
     virtual ~Function(){};
 	/// @}
 
 	/// @name GETTERS
 	/// @{
-    /**
-     * @brief Returns the value of the function
-     */
 	virtual double GetValue(double in)=0;
 	/// @}
 
 	/// @name DEBUG 
 	/// @{
-    /**
-     * @brief dump method
-     */
 	virtual void Dump()=0;
-    virtual void ErrorMessage(const char *string)=0; 						// metodo che stampa gli errori
+    virtual void ErrorMessage(const char *string)=0; 					// metodo che stampa gli errori
 	virtual void WarningMessage(const char *string)=0;					// metodo che stampa i warning
 	/// @}
 };
