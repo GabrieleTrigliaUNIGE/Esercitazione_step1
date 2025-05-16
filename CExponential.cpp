@@ -7,8 +7,8 @@
     La classe deve quindi prevedere le seguenti variabili membro:  
 
     double b_coeff  	per memorizzare la base b  
-    double  k_coeff	per memorizzare il coefficiente k
-    double  c_coeff	per memorizzare il coefficiente c
+    double k_coeff	    per memorizzare il coefficiente k
+    double c_coeff	    per memorizzare il coefficiente c
 */
 #include "CExponential.h"
 #include <iostream>
@@ -37,8 +37,8 @@ Exponential::Exponential(double b, double k, double c) {
  */
 Exponential::Exponential(Exponential& other) {
 
-    if (other.b_coeff < 0){
-        ErrorMessage("CopyContructor: La base non può essere negativa");
+    if (other.b_coeff <= 0){
+        ErrorMessage("CopyContructor: La base non può essere negativa o nulla");
         return;
     } 
 
@@ -87,7 +87,7 @@ bool Exponential::operator==(const Exponential& other) {
  */
 void Exponential::Reset(){
 
-    b_coeff=-1;
+    b_coeff=0;
     k_coeff=0;
     c_coeff=0;
 
@@ -101,10 +101,12 @@ void Exponential::Reset(){
  */
 void Exponential::SetExponential(double b, double k, double c) {
 
-    if (b > 0)
+    if (b > 0) {
         b_coeff = b;
-    else
-        ErrorMessage("SetExponential: La base non puo essere negativa");
+    } else {
+        ErrorMessage("SetExponential: La base non puo essere negativa o nulla");
+        return;
+    }
     k_coeff = k;
     c_coeff = c;
 
@@ -120,7 +122,7 @@ double Exponential::GetValue(double in) {
     if (b_coeff > 0)
         return k_coeff * (pow(b_coeff, c_coeff*in));
     else
-        return -1.; 
+        return NAN; 
     
 }
 
@@ -154,7 +156,7 @@ void Exponential::Dump() {
     if(b_coeff > 0) {
         std::cout << "Dump: " << k_coeff << "*" << b_coeff << "^" << c_coeff << "x" << std::endl;
     } else {
-        std::cout << "Dump: Errore: Esponenziale a base negativa" << std::endl;
+        std::cout << "Dump: Esponenziale non inizializzato o con base negativa o nulla" << std::endl;
     }
 
 }

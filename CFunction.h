@@ -13,6 +13,10 @@
 
 using namespace std;
 
+/**
+ * @class Function
+ * @brief Classe Astratta per l'implementazione delle funzioni
+ */
 class Function {
 
 public:  

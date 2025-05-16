@@ -2,7 +2,7 @@
 	@brief A class for exponential functions 
 	@author Gabriele Triglia matr.: 6440314
 	@author Alessio Marrazzo matr.: 6195070
-
+    
 	La funzione esponenziale (classe Exponential) è formalizzata come  k×bcx, con b > 0 
     La classe deve quindi prevedere le seguenti variabili membro:  
 
@@ -20,28 +20,28 @@
  */
 class Exponential : public Function{
 private:
-    double b_coeff; // per memorizzare la base b
-    double k_coeff; // per memorizzare il coefficiente k
-    double c_coeff; // per memorizzare il coefficiente c
+    double b_coeff;                                             // per memorizzare la base b
+    double k_coeff;                                             // per memorizzare il coefficiente k
+    double c_coeff;                                             // per memorizzare il coefficiente c
 
 public:
 
     /// @name COSTRUTTORI e DISTRUTTORE 
 	/// @{
-    Exponential();
-    Exponential(Exponential& other);
-    Exponential(double b, double k, double c);
+    Exponential();                                              // costruttore di default
+    Exponential(Exponential& other);                            // costruttore di copia
+    Exponential(double b, double k, double c);                  // costruttore con tutti gli attributi
     ~Exponential();
     /// @}
 
     /// @name OPERATORI
 	/// @{
-    Exponential& operator=(const Exponential& other);
-    bool operator==(const Exponential& other);
+    Exponential& operator=(const Exponential& other);           // overload dell'operatore =
+    bool operator==(const Exponential& other);                  // overload dell'operatore ==
     /// @}
 
-    void SetExponential(double b, double k, double c);
-    double GetValue(double in);
+    void SetExponential(double b, double k, double c);          // metodo setter che imposta i coefficienti per l'esponenziale
+    double GetValue(double in);                                 // metodo che valuta l'esponenziale in un valore (in) dato in input
 
     void Reset();
     

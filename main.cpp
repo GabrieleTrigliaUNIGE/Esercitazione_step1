@@ -9,6 +9,7 @@
 #include "CFunction.h"
 #include "CPolynomial.h"
 #include "CExponential.h"
+#include "CLogarithmic.h"
 
 using namespace std;
 
@@ -31,8 +32,12 @@ int main()
     Function *f1 = new Polynomial(cf3, 3);
 
     Exponential e1(2,2,4);
-    Exponential e2(-3,3,4);
+    Exponential e2(0,3,4);
     Function *f2 = new Exponential(3,5,6);
+
+    Logarithmic l1(2,2);
+    Logarithmic l2(-3,3);
+    Function *f3 = new Logarithmic(3,5);
 	
     cout << "--- INIZIO TEST POLINOMIO ---" << endl;
     cout << "Dump p0: ";
@@ -65,7 +70,7 @@ int main()
 	p1.Reset(); 
     cout << "TEST reset p1: ";
 	p1.Dump();
-    // DA ERRORE CONTROLLARE ESISTENZA POLINOMIO IN GetValue(); --> cout << "p1(5) = " << p1.GetValue(1.) << endl;
+    // DA ERRORE CONTROLLARE ESISTENZA POLINOMIO IN GetValue(); --> cout << "p1(5) = " << p1.GetValue(1.) << endl; FATTO!!!
 
     cout << "--- FINE TEST POLINOMIO ---" << endl;
     cout << "--- INIZIO TEST ESPONENZIALE ---" << endl;
@@ -96,8 +101,32 @@ int main()
     cout << "--- FINE TEST ESPONENZIALE ---" << endl;
     cout << "--- INIZIO TEST LOGARITMO ---" << endl;
 
+    cout << "Dump l1: ";
+    l1.Dump();
+    cout << "Dump l2: ";
+    l2.Dump();
+    cout << "Dump f2: ";
+    f3->Dump();
 
+    cout << "l1(1)=" << l1.GetValue(3) << endl;
+    cout << "l2(1)=" << l2.GetValue(3) << endl;
+
+    l2 = l1;
+
+    l2.Dump();
+
+    cout << "l1 == l2 ?: ";
+    if (l1 == l2) { 
+        cout << "vero" << endl;
+    }
+    
+    cout << "l2(1)=" << l2.GetValue(3) << endl;
+
+    cout << "--- FINE TEST LOGARITMO ---" << endl;
+    cout << "--- FİNE FILE TEST ---" << endl;
     
     delete f1;
+    delete f2;
+    delete f3;
     return 0;
 }
