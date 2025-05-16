@@ -3,7 +3,13 @@
 	@author Gabriele Triglia matr.: 6440314
 	@author Alessio Marrazzo matr.: 6195070
 
-	Details.
+	Un polinomio (classe Polynomial) è formalizzato come c0 + c1x + c2x2 + ……. 
+
+	La classe deve quindi prevedere le seguenti variabili membro:  
+
+	int degree 	per memorizzare il grado del polinomio  
+
+	double* coeff 	per memorizzare i coefficienti, a partire da c0  
 */
 
 #include "CPolynomial.h"
@@ -47,13 +53,13 @@ Polynomial::Polynomial(const Polynomial& p) {
 	int i;
 	
 	if (p.coeff == NULL) {
-		ErrorMessage("Copy constructor: the object to be copied has no coefficients");
+		ErrorMessage("Costruttore di copia: l'oggetto da copiare non ha coefficienti");
 		exit(-1);
 	}
 	degree = p.degree;
 	coeff = new double[degree + 1];
 	if (coeff == NULL) {
-		ErrorMessage("Copy constructor: cannot allocate memory");
+		ErrorMessage("Costruttore di copia: impossibile allocare memoria");
 		exit(-1);
 	}
 	
@@ -76,7 +82,7 @@ Polynomial& Polynomial::operator=(const Polynomial& p) {
         degree = p.degree;
         coeff = new double[degree + 1];
 		if (coeff == NULL) {
-			ErrorMessage("Operator =: cannot allocate memory");
+			ErrorMessage("Operatore = : impossibile allocare memoria");
 			exit(-1);
 		}
         for (i=0;i<=degree;i++)
@@ -87,7 +93,7 @@ Polynomial& Polynomial::operator=(const Polynomial& p) {
 
 /**
  * @brief Overload dell operatore == per la classe Polynomial
- * @param other oggetto di tipo Polynomial da confrontare
+ * @param p oggetto di tipo Polynomial da confrontare
  * @return true se gli oggetti sono uguali, false altrimenti
  */
 bool Polynomial::operator==(const Polynomial& p) {
@@ -116,7 +122,7 @@ void Polynomial::SetPolynomial(const double* coefficients, int size) {
 	int i=0;
 	
 	if (size < 1) {
-		ErrorMessage("SetPolynomial: the degree of the Polynomial cannot be negative");
+		ErrorMessage("SetPolynomial: il grado del polinomio non può essere negativo");
 		exit(-1);
 	}
 	
@@ -126,7 +132,7 @@ void Polynomial::SetPolynomial(const double* coefficients, int size) {
 	degree = size - 1;
     coeff = new double[size]; // restituisce double* dove 
 	if (coeff == NULL) {
-		ErrorMessage("SetPolynomial: cannot allocate memory");
+		ErrorMessage("SetPolynomial: impossibile allocare memoria");
 		exit(-1);
 	}
 	
@@ -144,7 +150,18 @@ double Polynomial::GetValue(double in) {
     int i;
 	double x = in;
 	double result = 0.0;
-        
+    
+	if (degree == -1) {
+		cout << "Polinopmio non inizializzato" << endl;
+		return -1.;
+	}
+	
+	if (coeff == NULL) {
+		cout << "Degree: " << degree << endl;
+		cout << "Nessun coefficiente inserito" << endl;
+		return -1.;
+	}
+
 	result = coeff[0];
 	for (i=1; i<=degree; i++) {
 		result += coeff[i]*x;
@@ -196,13 +213,13 @@ void Polynomial::Dump() {
 	int i;
 	
 	if (degree == -1) {
-		cout << "Uninitialized polynomial" << endl;
+		cout << "Polinopmio non inizializzato" << endl;
 		return;
 	}
 	
 	if (coeff == NULL) {
 		cout << "Degree: " << degree << endl;
-		cout << "No coefficients available" << endl;
+		cout << "Nessun coefficiente inserito" << endl;
 		return;
 	}
 	

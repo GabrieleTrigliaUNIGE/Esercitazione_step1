@@ -12,7 +12,11 @@
 
 using namespace std;
 
-int main(int argc, char const *argv[])
+/**
+ * @brief main function
+ * @return 0
+ */
+int main()
 {
     cout << "FILE DI TEST" << endl;
 
@@ -28,6 +32,7 @@ int main(int argc, char const *argv[])
 
     Exponential e1(2,2,4);
     Exponential e2(-3,3,4);
+    Function *f2 = new Exponential(3,5,6);
 	
     cout << "--- INIZIO TEST POLINOMIO ---" << endl;
     cout << "Dump p0: ";
@@ -65,8 +70,12 @@ int main(int argc, char const *argv[])
     cout << "--- FINE TEST POLINOMIO ---" << endl;
     cout << "--- INIZIO TEST ESPONENZIALE ---" << endl;
 
+    cout << "Dump e1: ";
     e1.Dump();
+    cout << "Dump e2: ";
     e2.Dump();
+    cout << "Dump f2: ";
+    f2->Dump();
 
     cout << "e1(1)=" << e1.GetValue(1) << endl;
     cout << "e2(1)=" << e2.GetValue(1) << endl;
@@ -81,6 +90,14 @@ int main(int argc, char const *argv[])
     }
     
     cout << "e2(1)=" << e2.GetValue(1) << endl;
+
+
+
+    cout << "--- FINE TEST ESPONENZIALE ---" << endl;
+    cout << "--- INIZIO TEST LOGARITMO ---" << endl;
+
+
     
+    delete f1;
     return 0;
 }

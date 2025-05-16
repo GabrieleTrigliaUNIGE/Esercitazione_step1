@@ -22,9 +22,9 @@ Exponential::Exponential() {
 
 /**
  * @brief costruttore con tutti gli attributi
- * @param b_coeff base della funzione esponenziale
- * @param k_coeff coefficiente k della funzione esponenziale
- * @param c_coeff coefficiente c della funzione esponenziale
+ * @param b base della funzione esponenziale
+ * @param k coefficiente k della funzione esponenziale
+ * @param c coefficiente c della funzione esponenziale
  */
 Exponential::Exponential(double b, double k, double c) {
     Reset();
@@ -33,6 +33,7 @@ Exponential::Exponential(double b, double k, double c) {
 
 /**
  * @brief Costruttore di copia della classe Exponential
+ * @param other oggetto Exponential da copiare
  */
 Exponential::Exponential(Exponential& other) {
 
@@ -94,9 +95,9 @@ void Exponential::Reset(){
 
 /**
  * @brief Metodo Setter per impostare una funzione esponenziale
- * @param b_coeff base della funzione esponenziale
- * @param k_coeff coefficiente k della funzione esponenziale
- * @param c_coeff coefficiente c della funzione esponenziale
+ * @param b base della funzione esponenziale
+ * @param k coefficiente k della funzione esponenziale
+ * @param c coefficiente c della funzione esponenziale
  */
 void Exponential::SetExponential(double b, double k, double c) {
 

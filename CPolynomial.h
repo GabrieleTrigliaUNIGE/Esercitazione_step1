@@ -3,7 +3,13 @@
 	@author Gabriele Triglia matr.: 6440314
 	@author Alessio Marrazzo matr.: 6195070
 
-	Details.
+	Un polinomio (classe Polynomial) è formalizzato come c0 + c1x + c2x2 + ……. 
+
+	La classe deve quindi prevedere le seguenti variabili membro:  
+
+	int degree 	per memorizzare il grado del polinomio  
+
+	double* coeff 	per memorizzare i coefficienti, a partire da c0
 */ 
 
 #ifndef POLYNOMIAL_H
