@@ -1,5 +1,5 @@
 /*! @file CFunction.h
-	@brief A virtual base class for functions of a single variable
+	@brief Classe base per la gestione di funzioni a una variabile (function object)
 	@author Gabriele Triglia matr.: 6440314 
     @author Alessio Marrazzo matr.: 6195070
 */ 
@@ -22,18 +22,18 @@ class Function {
 public:  
 	/// @name COSTRUTTORI e DISTRUTTORE
 	/// @{
-    Function(){};
-    virtual ~Function(){};
+    Function(){};														// costruttore di default della generica funzione
+    virtual ~Function(){};												// distruttore della generica funzione
 	/// @}
 
 	/// @name GETTERS
 	/// @{
-	virtual double GetValue(double in)=0;
+	virtual double GetValue(double in)=0;								// metodo che restituisce il valore di una generica funzione dato un valore in input
 	/// @}
 
 	/// @name DEBUG 
 	/// @{
-	virtual void Dump()=0;
+	virtual void Dump()=0;												// metodo che stampa lo stato di una funzione
     virtual void ErrorMessage(const char *string)=0; 					// metodo che stampa gli errori
 	virtual void WarningMessage(const char *string)=0;					// metodo che stampa i warning
 	/// @}

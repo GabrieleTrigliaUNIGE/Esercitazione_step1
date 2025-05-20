@@ -36,10 +36,10 @@ int main()
     Function *f2 = new Exponential(3,5,6);
 
     Logarithmic l1(2,2);
-    Logarithmic l2(-3,3);
+    Logarithmic l2(6,3);
     Function *f3 = new Logarithmic(3,5);
 	
-    cout << "--- INIZIO TEST POLINOMIO ---" << endl;
+    cout << "\n\t\t\t--- INIZIO TEST POLINOMIO ---" << endl;
     cout << "Dump p0: ";
 	p0.Dump();
     cout << "Dump p1: ";
@@ -70,10 +70,10 @@ int main()
 	p1.Reset(); 
     cout << "TEST reset p1: ";
 	p1.Dump();
-    // DA ERRORE CONTROLLARE ESISTENZA POLINOMIO IN GetValue(); --> cout << "p1(5) = " << p1.GetValue(1.) << endl; FATTO!!!
+    // ERRORE CONTROLLARE ESISTENZA POLINOMIO IN GetValue(); --> cout << "p1(5) = " << p1.GetValue(1.) << endl; FATTO!!!
 
-    cout << "--- FINE TEST POLINOMIO ---" << endl;
-    cout << "--- INIZIO TEST ESPONENZIALE ---" << endl;
+    cout << "\n\t\t\t--- FINE TEST POLINOMIO ---" << endl;
+    cout << "\t\t\t--- INIZIO TEST ESPONENZIALE ---\n" << endl;
 
     cout << "Dump e1: ";
     e1.Dump();
@@ -96,20 +96,22 @@ int main()
     
     cout << "e2(1)=" << e2.GetValue(1) << endl;
 
+    e1.Reset(); 
+    cout << "TEST reset e1: ";
+	e1.Dump();
 
-
-    cout << "--- FINE TEST ESPONENZIALE ---" << endl;
-    cout << "--- INIZIO TEST LOGARITMO ---" << endl;
+    cout << "\n\t\t\t--- FINE TEST ESPONENZIALE ---" << endl;
+    cout << "\t\t\t--- INIZIO TEST LOGARITMO ---\n" << endl;
 
     cout << "Dump l1: ";
     l1.Dump();
     cout << "Dump l2: ";
     l2.Dump();
-    cout << "Dump f2: ";
+    cout << "Dump f3: ";
     f3->Dump();
 
-    cout << "l1(1)=" << l1.GetValue(3) << endl;
-    cout << "l2(1)=" << l2.GetValue(3) << endl;
+    cout << "l1(3)=" << l1.GetValue(3) << endl;
+    cout << "l2(3)=" << l2.GetValue(3) << endl;
 
     l2 = l1;
 
@@ -120,10 +122,14 @@ int main()
         cout << "vero" << endl;
     }
     
-    cout << "l2(1)=" << l2.GetValue(3) << endl;
+    cout << "l2(3)=" << l2.GetValue(3) << endl;
 
-    cout << "--- FINE TEST LOGARITMO ---" << endl;
-    cout << "--- FİNE FILE TEST ---" << endl;
+    l1.Reset(); 
+    cout << "TEST reset e1: ";
+	l1.Dump();
+
+    cout << "\n\t\t\t--- FINE TEST LOGARITMO ---" << endl;
+    cout << "\t\t\t--- FİNE FILE TEST ---\n" << endl;
     
     delete f1;
     delete f2;
