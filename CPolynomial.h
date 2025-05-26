@@ -34,7 +34,7 @@ private:
 public:
 	/// @name COSTRUTTORI e DISTRUTTORE
 	/// @{
-    Polynomial();  // costruttore di default 
+    Polynomial();  												// costruttore di default 
 	Polynomial(const double* coefficients, int size); 			// costruttore di default con passaggio di parametri 
     Polynomial(const Polynomial& p); 							// costruttore di copia 
     ~Polynomial();												// distruttore dei Polynomial
